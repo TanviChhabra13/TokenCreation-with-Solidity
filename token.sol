@@ -26,13 +26,13 @@ contract Token {
     mapping(address => uint256) public balances;
 
     // Mint Function
-    function mint(address _to, uint256 _value) external {
+    function mint(address _to, uint256 _value) public {
         totalSupply += _value;
         balances[_to] += _value;
     }
 
     // Burn Function
-    function burn(uint256 _value) external {
+    function burn(uint256 _value) public {
         require(balances[msg.sender] >= _value, "Insufficient balance to burn");
         totalSupply -= _value;
         balances[msg.sender] -= _value;
